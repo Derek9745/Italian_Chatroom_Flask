@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ItalianChat</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='login.css') }}"
+    />
+  </head>
+  <body>
+    <div class="navheaderContainer">
+      <nav class="navHeader">
+        <h2>ItalianChat</h2>
+          <a href="#home" class="navItem active">Home</a>
+          <a href="#about" class="navItem">About</a>
+          <a href="#contact" class="navItem">Contact</a>
+      </nav>
+      <div class="whiteStripe"></div>
+      <div class="greenStripe"></div>
+    </div>
+
+
+    <section id="home" class="section">
+    <div class="mainHorizontalLayout">
+      <div class="mainVerticalLayout">
+        <div class="headerMessage">
+          <div class="loginContainer">
+            <div class="horizontalFlex">
+              <form id="auth_form" action="{{url_for('login')}}" method="post">
+                <div class="verticalFlex">
+                  <h1>ItalianChat</h1>
+                  <h2>Log In</h2>
+                  <input
+                    type="text"
+                    class="usernameInput"
+                    placeholder="username"
+                    name="username"
+                  />
+                  <input
+                    type="text"
+                    class="passwordInput"
+                    placeholder="password"
+                    name="password"
+                  />
+                  <div class="horizontalButtonFlex">
+                    <input
+                      name="submit"
+                      value="Login"
+                      type="submit"
+                      onclick="setActionForm('login')"
+                      class="btn"
+                    />
+
+                    <input
+                      name="register"
+                      value="Register"
+                      type="submit"
+                      onclick="setActionForm('register')"
+                      class="btn"
+                    />
+                  </div>
+                  <a class="link">forgot password?</a>
+                </div>
+              </form>
+            </div>
+          </div>
+          <h4 class="tagLineText">
+            A chatroom for practicing italian and making new friends
+          </h4>
+        </div>
+
+
+        </section>
+        <section id="about" class="section aboutContainer">
+        <div class="aboutContainer">
+          <p>ItalianChat is chatroom app designed for communication between anyone passionate about the Italian language!</p>
+             <p>Practice with friends nearby, or connect with users from Italy and across the globe.</p>
+        </div>
+        </section>
+
+      <section id="contact" class="section contactContainer">
+        <div class = "contactContainer"> 
+        <form id="contactForm" action="https://formsubmit.co/d953bd6456e0c655e03dd8db850e1f32" method="POST">
+          <h1>Contact</h1>
+          <div class="inputColumn">
+            <input class="input" type="text" name="name" placeholder="Name" required />
+            <input class="input" type="email" name="email" placeholder="Email" required />
+            <textarea class="input" id="messageArea" name="message" placeholder="Message" required></textarea>
+            <button class="sendButton" type="submit">Send Message</button>
+          </div>
+        </form>
+      </div>
+        </section>
+
+      
+        </div>
+      </div>
+      <script>
+        function setActionForm(action) {
+          let form = document.getElementById("auth_form");
+
+          if (action === "login") {
+            form.action = "{{url_for('login')}}";
+          } else if (action === "register") {
+            form.action = "{{url_for('register')}}";
+          }
+
+          form.submit();
+        }
+      </script>
+            <script>
+        const sections = document.querySelectorAll("section");
+        const navItems = document.querySelectorAll(".navItem");
+
+        window.addEventListener("scroll", () => {
+          let current = "";
+
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+
+            if (scrollY >= sectionTop - sectionHeight / 3) {
+              current = section.getAttribute("id");
+            }
+          });
+
+          navItems.forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === "#" + current) {
+              link.classList.add("active");
+            }
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>

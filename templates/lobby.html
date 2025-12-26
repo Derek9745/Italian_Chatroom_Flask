@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='lobby.css') }}"
+    />
+  </head>
+  <body>
+    <div class="mainVerticalLayout">
+      <div class="horizontalLayout">
+        <div class="sideNavBar">
+          <h2>ItalianChat</h2>
+
+          <button class="navButton">Lobby</button>
+          <button class="navButton">User Profile</button>
+          <button class="navButton">Admin - Coming Soon!...</button>
+          <button class="navButton">Calender</button>
+          <form action="{{ url_for('logout') }}" method="post">
+            <button class="btn" type="submit">Log Out</button>
+          </form>
+        </div>
+        <div class="centerLayout">
+          <div class="chatroomLobbyList">
+            <div class="lobbyHeader">
+              <h3>Chatrooms</h3>
+              <form id="form">
+                <input
+                  type="search"
+                  id="query"
+                  name="q"
+                  placeholder="Search..."
+                />
+                <button>Search</button>
+              </form>
+            </div>
+            <div class="chatRoom">
+              <a>Chatroom Name</a>
+              <select name="language" id="language">
+                <option value="italian">Italian Only</option>
+                <option value="english">English Only</option>
+                <option value="mixed">Italian/English</option>
+              </select>
+              <a>Number of Participants/Room Size Limit</a>
+              <button class="btn">Join</button>
+            </div>
+            <div class="newChatRoom">
+              <form class="roomInputForm">
+                <input class="chatRoomName" />
+                <input class="maxRoomNumber" />
+                <input class="btn" type="submit" value="Create Room" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

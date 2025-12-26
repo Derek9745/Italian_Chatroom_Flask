@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Room</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="chat_Container">
+      <div class = "vertical_flex">
+         <img class = "user_Profile_Picture" src = "/images/IMG_20240722_174225_080.jpg" ></img>
+          <p style = "text-decoration: underline;">UserName</p>
+      </div>
+            <div id="chat_Box" class="text_Container">
+            <p style = "color: white;">Testing text</p>
+        </div>
+    </div>
+  </body>
+</html>
