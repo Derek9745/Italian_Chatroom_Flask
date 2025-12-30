@@ -75,8 +75,7 @@
         </section>
         <section id="about" class="section aboutContainer">
         <div class="aboutContainer">
-          <p>ItalianChat is chatroom app designed for communication between anyone passionate about the Italian language!</p>
-             <p>Practice with friends nearby, or connect with users from Italy and across the globe.</p>
+          <p class = "aboutText">ItalianChat is chatroom app designed for communication between anyone passionate about the Italian language! Practice with friends nearby, or connect with users from Italy and across the globe.</p>
         </div>
         </section>
 
@@ -85,7 +84,10 @@
         <form id="contactForm" action="https://formsubmit.co/d953bd6456e0c655e03dd8db850e1f32" method="POST">
           <h1>Contact</h1>
           <div class="inputColumn">
-            <input class="input" type="text" name="name" placeholder="Name" required />
+            <div class = "horizontalGroup">
+              <input class="input nameInput halfInput" type="text" name="firstName" placeholder="First Name" required />
+              <input class="input nameInput halfInput" type="text" name="lastName" placeholder="Last Name" required />
+            </div>
             <input class="input" type="email" name="email" placeholder="Email" required />
             <textarea class="input" id="messageArea" name="message" placeholder="Message" required></textarea>
             <button class="sendButton" type="submit">Send Message</button>

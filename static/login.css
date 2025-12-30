@@ -18,20 +18,30 @@ html{
 }
 
 #about{
-     background-image: url('images/background6.jpg');
+    background-image: url('images/background6.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-     color:white;
-     font:"sans-serif"
+    color:white;
+    font:"sans-serif";
+    
 
 }
+
+.aboutText{
+    max-width: 800px;
+
+
+}
+
+
 
 #contact{
     display:flex;
     flex-direction: column;
     justify-items: center;
     align-content: center;
+    background-color: blanchedalmond;
 
 }
 
@@ -173,7 +183,7 @@ body{
 
 }
 
-/* keyframes */
+
 @keyframes revealStripe {
     from {
         transform: scaleX(0);
@@ -254,9 +264,18 @@ body{
    
 }
 
+
 .input{
-    min-width: 600px;
+    width:500px;
     padding:20px;
+    background-color:rgba(128, 128, 128, 0.315);
+    border:none;
+    outline:none;
+    border-radius:3px;
+}
+
+.nameInput{
+   width: 400px;
 }
 .sendButton{
     background-color: rgb(233, 75, 75);
@@ -268,22 +287,44 @@ body{
    
   
 }
+
+
+
 .aboutContainer{
-    
+    padding-top: 100px;
+    font-size: large;
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
+    align-content: center;
+    align-self: center;
     
 
 
 }
 
 
+
 .contactContainer {
-  padding: 20px;
+  padding: 40px;
   display: flex;            
   justify-content: center;    
   align-items: center;        
   text-align: center;         
-  min-width: 700px;
   border-radius: 2px;
+  background-color: white;
+
 
   outline: 2px solid green; /
+}
+
+.horizontalGroup{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:10px;
+}
+
+.halfInput{
+    max-width:225px;
 }

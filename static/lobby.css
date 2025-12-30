@@ -14,6 +14,11 @@ body{
     min-width:200px;
     padding:6px;
 }
+
+.searchRoomBtn{
+
+
+}
 .chatRoom{
     display:flex;
     flex-direction:row;
@@ -23,6 +28,7 @@ body{
     justify-content: space-evenly;
     align-items: center;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
   
 }
 
@@ -31,16 +37,28 @@ body{
     flex-direction:row;
     padding:20px;
     background-color: rgb(203, 203, 203);
-    justify-content:space-evenly;
+    justify-content:center;
+    align-content: center;
+    align-items: center;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    background-color: #b0777a;
+    max-height:35px;
+  
 }
 
 .lobbyHeader{
-    background-color: rgba(202, 10, 10, 0.788);
+    background-color: #CD212A;
     text-align: center;
     outline: 1px black solid;
     font-family:sans-serif;
     color:white;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap:10px;
+    justify-content:center;
+    min-height: 100px;
+   
 }
 
 
@@ -48,11 +66,9 @@ body{
     margin-top: 0px;
     margin:10px;
     background-color: #CD212A;
-    background: linear-gradient(135deg, #db2f71, #CD212A); 
     border-style: none;
     border-radius: 3px;
     padding:10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     min-width:60px;
 
 
@@ -71,7 +87,7 @@ body{
      background: linear-gradient(135deg, #de4f86, #CD212A); 
 }
 
-.chatroomLobbyList{
+.chatRoomLobbyList{
     display:flex;
     flex-direction: column;
     background-color: rgba(173, 172, 172, 0.493);
@@ -79,6 +95,8 @@ body{
     height:100%;
     border: 1px black solid;
     font-family:sans-serif;
+    overflow:auto;
+    scrollbar-width: thin;
 
     
 
@@ -112,16 +130,35 @@ body{
     flex-direction: column;
     height: 100%;
     width:270px;
-    min-width: 270px;
+   
     padding: 10px;
     overflow: hidden;
     transition: width 0.4s ease;
     background-color: rgba(255, 255, 255, 0.9); 
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    margin-right:3px;
+    margin-right:1px;
     font-family:sans-serif;
+
+
     
 
+}
+
+.navButton{
+    border-radius:3px;
+}
+
+.navButton:hover{
+    transform:scale(1.02);
+    background-color: rgb(228, 228, 228);
+}
+.navButton:active{
+    background-color: rgb(234, 234, 234);
+}
+
+.horizontalGroup{
+    display:flex;
+    flex-direction: row;
 }
 
 /* collapsed state */
