@@ -7,6 +7,18 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
 
+# ===== ADD THESE LINES TO DISABLE CACHING =====
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+app.config['TEMPLATES_AUTO_RELOAD'] = True
+
+@app.after_request
+def add_header(response):
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '-1'
+    return response
+# ===== END OF CACHING CONFIGURATION =====
+
 # Flask-Login setup
 login_manager = LoginManager()
 login_manager.login_view = "home"  # Redirect here if not logged in
@@ -84,6 +96,13 @@ def register():
 @login_required
 def lobby():
     return render_template("lobby.html", username=current_user.username)
+
+
+# Lobby - protected route
+@app.route('/chatroom')
+@login_required
+def chatroom():
+    return render_template("chatroom.html", username=current_user.username)
 
 
 # Logout route

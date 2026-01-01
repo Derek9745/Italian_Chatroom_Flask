@@ -34,7 +34,13 @@
                   name="q"
                   placeholder="Search..."
                 />
-                <button class=".searchRoomBtn">Search</button>
+                <button
+                  class="searchRoomBtn"
+                  type="button"
+                  onclick="searchForRooms()"
+                >
+                  Search
+                </button>
               </form>
             </div>
 
@@ -68,49 +74,47 @@
         </div>
       </div>
     </div>
+
+    <script>
+      var roomCounter = 0;
+
+      function addChatRoomBtn() {
+        const container = document.querySelector(".chatRoomLobbyList");
+        const chatRoomDiv = document.createElement("div");
+
+        const roomName = document.querySelector(".chatRoomName").value;
+        const occupancy = document.querySelector(".maxRoomNumber").value;
+        const language = document.querySelector(".languageRule").value;
+
+        console.log("Room name:", roomName, "Occupancy:", occupancy); // Debug line
+
+        if (!roomName || !occupancy) {
+          //check if room with same name already exists
+          //check that occupancy input is only numerical, and cannot be any number of only 0's
+          alert("Please enter a valid room name and max room size");
+          return;
+        }
+
+        chatRoomDiv.className = "chatRoom";
+        chatRoomDiv.innerHTML = `
+    <h4>Language: ${language || "Any"}</h4>
+    <h4>Room: ${roomName || "New chatroom"}</h4>
+    <h4>Users: 0/${occupancy || "N/A"}</h4>
+    <h4>Room ID: </h4>
+    <form action="{{url_for('chatroom') }}">
+      <button class="btn" type="submit">Enter ChatRoom</button>
+    </form>
+    `;
+
+        roomCounter += 1;
+        if (roomCounter >= 10) {
+          window.alert("Lobby is Full!");
+          return;
+        }
+
+        container.appendChild(chatRoomDiv);
+        console.log("Room added!"); // Debug line
+      }
+    </script>
   </body>
 </html>
-
-<script>
-  var roomCounter = 0;
-  function addChatRoomBtn() {
-    event.preventDefault();
-
-    var x = document.forms["roomInputForm"]["roomSize"].value;
-    if (isNaN(x)) {
-      alert("Must input numbers");
-      return;
-    }
-
-    const container = document.querySelector(".chatRoomLobbyList");
-    const chatRoomDiv = document.createElement("div");
-
-    const roomName = document.querySelector(".chatRoomName").value;
-    const occupancy = document.querySelector(".maxRoomNumber").value;
-    const language = document.querySelector(".languageRule").value;
-
-    if (!roomName || !occupancy) {
-      //check if room with same name already exists
-      //check that occupancy input is only numerical, and cannot be any number of only 0's
-      alert("Please enter a valid room name and max room size");
-      return;
-    }
-
-    chatRoomDiv.className = "chatRoom";
-    chatRoomDiv.innerHTML = `
-      <h4>Language: ${language || "Any"}</h4>
-      <h4>Room: ${roomName || "New Chatroom"}</h4>
-      <h4>Users: 0/${occupancy || "N/A"}</h4>
-      <h4>Room ID:  </h4>
-      <button class="enterBtn btn">Join Room</button>
-`;
-
-    roomCounter += 1;
-    if (roomCounter >= 10) {
-      window.alert("Lobby is Full!");
-      return;
-    }
-
-    container.appendChild(chatRoomDiv);
-  }
-</script>
